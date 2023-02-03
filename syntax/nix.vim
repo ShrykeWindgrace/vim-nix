@@ -45,7 +45,7 @@ syn match nixInvalidSimpleStringEscape /\\[^nrt"\\$]/ contained
 syn match nixInvalidStringEscape /''\\[^nrt]/ contained
 
 syn region nixSimpleString matchgroup=nixStringDelimiter start=+"+ skip=+\\"+ end=+"+ contains=nixInterpolation,nixSimpleStringSpecial,nixInvalidSimpleStringEscape
-syn region nixString matchgroup=nixStringDelimiter start=+''+ skip=+''['$\\]+ end=+''+ contains=nixInterpolation,nixStringSpecial,nixInvalidStringEscape
+syn region nixString matchgroup=nixStringDelimiter start=+''+ skip=+''['$\\]+ end=+''+ contains=nixInterpolation,nixStringSpecial,nixInvalidStringEscape fold
 
 syn match nixFunctionCall "[a-zA-Z_][a-zA-Z0-9_'-]*"
 
@@ -66,7 +66,7 @@ syn region nixInheritAttributeSubExpr start="("ms=e+1 end="\ze)" contained conta
 syn region nixInheritAttributeScope start="\ze(" end=")" contained contains=nixInheritAttributeSubExpr
 syn region nixAttributeDefinition matchgroup=nixInherit start="\<inherit\>" end=";" contained contains=nixComment,nixInheritAttributeScope,nixAttribute
 
-syn region nixAttributeSet start="{" end="}" contains=nixComment,nixAttributeDefinition
+syn region nixAttributeSet start="{" end="}" contains=nixComment,nixAttributeDefinition fold
 
 "                                                                                                              vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 syn region nixArgumentDefinitionWithDefault matchgroup=nixArgumentDefinition start="[a-zA-Z_][a-zA-Z0-9_'-]*\ze\%(\s\|#.\{-\}\n\|\n\|/\*\_.\{-\}\*/\)*?\@=" matchgroup=NONE end="[,}]\@=" transparent contained contains=@nixExpr
