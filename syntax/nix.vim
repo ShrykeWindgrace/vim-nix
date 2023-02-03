@@ -113,7 +113,7 @@ syn region nixFunctionArgument start="{\ze\%(\s\|#.\{-\}\n\|\n\|/\*\_.\{-\}\*/\)
 "                                                               vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 syn match nixSimpleFunctionArgument "[a-zA-Z_][a-zA-Z0-9_'-]*\ze\%(\s\|#.\{-\}\n\|\n\|/\*\_.\{-\}\*/\)*:\([\n ]\)\@="
 
-syn region nixList matchgroup=nixListBracket start="\[" end="\]" contains=@nixExpr
+syn region nixList matchgroup=nixListBracket start="\[" end="\]" contains=@nixExpr fold
 
 syn region nixLetExpr matchgroup=nixLetExprKeyword start="\<let\>" end="\<in\>" contains=nixComment,nixAttributeDefinition
 
